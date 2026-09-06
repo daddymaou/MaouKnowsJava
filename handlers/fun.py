@@ -2,6 +2,7 @@ from telethon import events
 from telethon.tl.types import DocumentAttributeAudio
 from io import BytesIO
 from urllib.parse import quote
+import random
 import requests
 import random
 
