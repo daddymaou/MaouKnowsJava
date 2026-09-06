@@ -4,6 +4,7 @@ from io import BytesIO
 from urllib.parse import quote
 import random
 import requests
+import random
 
 from config import BOT_NAME, OWNER_USERNAME
 from utils import require_private, require_sudo
@@ -90,20 +91,18 @@ Clean & modular Telegram userbot.
 Use `.menu` or `.help` to see commands.
 """
         await event.reply(text.strip())
+    @client.on(events.NewMessage(pattern=r"^[.!](?:coinflip|flip)$"))
+    @require_private
+    async def coinflip(event):
+        result = random.choice(["Heads", "Tails"])
+        await event.reply(f"🪙 **Coin Flip**\nResult: `{result}`")
 
-@client.on(events.NewMessage(pattern=r"^[.!](?:coinflip|flip)$"))
-@require_private
-async def coinflip(event):
-    result = random.choice(["Heads", "Tails"])
-    await event.reply(f"🪙 **Coin Flip**\nResult: `{result}`")
-
-
-@client.on(events.NewMessage(pattern=r"^[.!](?:dice|roll)(?: (\d+))?$"))
-@require_private
-async def dice(event):
-    sides = event.pattern_match.group(1)
-    sides = int(sides) if sides and sides.isdigit() else 6
-    if sides < 2 or sides > 100:
-        return await event.reply("Please choose between 2 and 100 sides.")
-    result = random.randint(1, sides)
-    await event.reply(f"🎲 You rolled a **{result}** (1–{sides})")
+    @client.on(events.NewMessage(pattern=r"^[.!](?:dice|roll)(?: (\d+))?$"))
+    @require_private
+    async def dice(event):
+        sides = event.pattern_match.group(1)
+        sides = int(sides) if sides and sides.isdigit() else 6
+        if sides < 2 or sides > 100:
+            return await event.reply("Please choose between 2 and 100 sides.")
+        result = random.randint(1, sides)
+        await event.reply(f"🎲 You rolled a **{result}** (1–{sides})")
