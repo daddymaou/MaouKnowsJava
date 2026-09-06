@@ -1,5 +1,5 @@
 # MaouKnowsJava 
-
+ 
 **Clean, modular, and professional Telegram Userbot** built with [Telethon](https://github.com/LonamiWebs/Telethon).
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue?logo=python)
