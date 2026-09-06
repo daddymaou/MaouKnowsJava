@@ -4,7 +4,7 @@ from io import BytesIO
 from urllib.parse import quote
 import random
 import requests
-import random
+
 
 from config import BOT_NAME, OWNER_USERNAME
 from utils import require_private, require_sudo
