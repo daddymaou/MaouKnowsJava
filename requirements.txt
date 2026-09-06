@@ -1,0 +1,10 @@
+telethon>=1.36.0
+python-dotenv>=1.0.1
+aiohttp>=3.9.5
+Pillow>=10.3.0
+qrcode[pil]>=7.4.2
+requests>=2.32.0
+yt-dlp>=2024.8.0
+gTTS>=2.5.1
+pytz>=2024.1
+deep-translator>=1.11.4
